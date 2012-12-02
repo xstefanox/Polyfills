@@ -1,6 +1,8 @@
 ###
-Implement a browser console object if the browser does not support it
+The MIT License, Copyright (c) 2012 Stefano Varesi
 ###
+
+# Implement a browser console object if the browser does not support it
 
 # target both CommonJS and the browser
 global = exports ? this

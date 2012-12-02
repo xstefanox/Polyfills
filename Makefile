@@ -1,12 +1,14 @@
 all: min.js
 
 min.js: js
-	uglifyjs --no-copyright --output String.trim.min.js String.trim.js
-	uglifyjs --no-copyright --output console.min.js console.js
+	uglifyjs --ascii --output String.trim.min.js String.trim.js
+	uglifyjs --ascii --output console.min.js console.js
 	
 js:
 	coffee -c String.trim.coffee
 	coffee -c console.coffee
+	sed -i '' -e '1,2 d' -e '3 N;s/\n/ /;' -e '4 N;s/\n/ /;' String.trim.js
+	sed -i '' -e '1,2 d' -e '3 N;s/\n/ /;' -e '4 N;s/\n/ /;' console.js
 
 lint:
 	coffeelint String.trim.coffee
